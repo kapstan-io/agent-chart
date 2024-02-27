@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kapstan-agent
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "kapstan-agent.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "kapstan-agent.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "kapstan-agent.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - image: kapstan-agent
+          imagePullPolicy: Never
+          name: agent
+          volumeMounts:
+            - mountPath: /var/run/secrets/tokens
+              name: agent-token
+          env:
+            - name: AGENT_ENVIRONMENT
+              value: {{ .Values.kapstan.agent.environment }}
+            - name: AGENT_CONFIG_ENDPOINT
+              value: {{ .Values.kapstan.endpoint }}
+            - name: AGENT_CONFIG_SECRET_NAME
+              value: {{ .Values.kapstan.agent.secret.name }}
+            - name: AGENT_CONFIG_SECRET_NAMESPACE
+              value: {{ .Values.kapstan.agent.secret.namespace }}
+
+      serviceAccountName: kapstan-agent
+      volumes:
+        - name: agent-token
+          projected:
+            sources:
+              - serviceAccountToken:
+                  path: agent-token
+                  expirationSeconds: 7200
+                  audience: agent

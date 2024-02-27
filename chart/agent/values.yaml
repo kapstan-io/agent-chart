@@ -1,0 +1,8 @@
+kapstan:
+  endpoint: "https://api.kapstan.io"
+  agent:
+    environment: "production"
+    secret:
+      name: "kapstan-agent-secret"
+      namespace: "default"
+replicaCount: 1
