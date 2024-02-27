@@ -20,7 +20,7 @@ spec:
         {{- include "kapstan-agent.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-        - image: kapstan-agent
+        - image: "{{ .Values.agent.image.repository }}:{{ .Values.agent.image.tag }}"
           imagePullPolicy: Never
           name: agent
           volumeMounts:

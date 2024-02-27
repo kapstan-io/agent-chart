@@ -1,6 +1,9 @@
 kapstan:
   endpoint: "https://api.kapstan.io"
   agent:
+    image:
+      repository: "ghcr.io/kapstan-io/agent"
+      tag: "0.0.1"
     environment: "production"
     secret:
       name: "kapstan-agent-secret"
