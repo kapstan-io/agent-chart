@@ -8,4 +8,5 @@ kapstan:
     secret:
       name: "kapstan-agent-secret"
       namespace: "default"
+    skipTlsVerify: "false"
 replicaCount: 1
