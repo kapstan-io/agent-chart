@@ -7,6 +7,6 @@ kapstan:
     environment: "production"
     secret:
       name: "kapstan-agent-secret"
-      namespace: "default"
-    skipTlsVerify: "false"
+      namespace: "kapstan"
+    skipTlsVerify: false
 replicaCount: 1

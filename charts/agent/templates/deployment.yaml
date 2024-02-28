@@ -36,7 +36,7 @@ spec:
             - name: AGENT_CONFIG_SECRET_NAMESPACE
               value: {{ .Values.kapstan.agent.secret.namespace }}
             - name: AGENT_CONFIG_SKIP_TLS_VERIFY
-              value: {{ .Values.kapstan.agent.skipTlsVerify }}
+              value: "{{ .Values.kapstan.agent.skipTlsVerify }}"
 
       serviceAccountName: kapstan-agent
       volumes:
