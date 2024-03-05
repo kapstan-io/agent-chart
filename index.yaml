@@ -3,6 +3,16 @@ entries:
   kapstan-agent:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-03-05T02:16:49.354802013Z"
+    description: A Helm chart for deploying kapstan-agent
+    digest: c4a7426d8c9d6736d4ad54646ddb413f0565f90106e2cc00dbbacba8fe972c8b
+    name: kapstan-agent
+    type: application
+    urls:
+    - https://github.com/kapstan-io/agent-chart/releases/download/kapstan-agent-0.0.5/kapstan-agent-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-02-28T20:01:49.283184669Z"
     description: A Helm chart for deploying kapstan-agent
     digest: 72857493976b99d5207ccf6c2280c6f1b804d8bf577f6ee8253b708dcc667a6d
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://github.com/kapstan-io/agent-chart/releases/download/kapstan-agent-0.0.1/kapstan-agent-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-28T20:01:49.283204586Z"
+generated: "2024-03-05T02:16:49.354825547Z"
