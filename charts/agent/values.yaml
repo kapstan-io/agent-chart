@@ -4,6 +4,7 @@ kapstan:
     image:
       repository: "ghcr.io/kapstan-io/agent"
       tag: "0.0.1"
+      pullPolicy: "IfNotPresent"
     environment: "production"
     secret:
       name: "kapstan-agent-secret"

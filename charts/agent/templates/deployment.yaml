@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - image: "{{ .Values.kapstan.agent.image.repository }}:{{ .Values.kapstan.agent.image.tag }}"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: {{ .Values.kapstan.agent.image.pullPolicy }}
           name: agent
           volumeMounts:
             - mountPath: /var/run/secrets/tokens
