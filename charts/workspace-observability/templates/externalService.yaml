@@ -1,10 +1,11 @@
 {{- if .Capabilities.APIVersions.Has "networking.istio.io/v1alpha3" }}
+{{- $namespace := .Release.Namespace }}
 {{- range $externalService := .Values.externalServices }}
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
   name: {{ include "sanitizeDomainName" $externalService }}
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ $namespace}}
 spec:
   hosts:
     - {{ $externalService }}
@@ -23,7 +24,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
   name: {{ include "sanitizeDomainName" $externalService }}
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ $namespace }}
 spec:
   host: {{ $externalService }}
   trafficPolicy:
