@@ -1,0 +1,40 @@
+{{- if .Capabilities.APIVersions.Has "networking.istio.io/v1alpha3" }}
+{{- range $externalService := .Values.externalServices }}
+apiVersion: networking.istio.io/v1alpha3
+kind: ServiceEntry
+metadata:
+  name: {{ include "sanitizeDomainName" $externalService }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  hosts:
+    - {{ $externalService }}
+  ports:
+    - number: 80
+      name: http-port
+      protocol: HTTP
+      targetPort: 443
+    - number: 443
+      name: https-port
+      protocol: HTTPS
+  resolution: DNS
+  location: MESH_EXTERNAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: {{ include "sanitizeDomainName" $externalService }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  host: {{ $externalService }}
+  trafficPolicy:
+    portLevelSettings:
+      - port:
+          number: 80
+        tls:
+          mode: SIMPLE
+          subjectAltNames:
+            - {{ $externalService }}
+          sni: {{ $externalService }}
+---
+{{- end }}
+{{- end }}
