@@ -51,4 +51,15 @@ entries:
     urls:
     - https://github.com/kapstan-io/agent-chart/releases/download/kapstan-agent-0.0.1/kapstan-agent-0.0.1.tgz
     version: 0.0.1
-generated: "2024-03-05T02:16:49.354825547Z"
+  workspace-observability:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2024-04-19T23:35:43.523194723Z"
+    description: A Helm chart for deploying Kapstan's workspace-observability configurations
+    digest: 417c276298ad3363185e940a78404d3e95d1d830a507c6f3d837dbe76c7f8cd7
+    name: workspace-observability
+    type: application
+    urls:
+    - https://github.com/kapstan-io/agent-chart/releases/download/workspace-observability-0.0.1/workspace-observability-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-04-19T23:35:43.523241681Z"
