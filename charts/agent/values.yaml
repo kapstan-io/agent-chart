@@ -10,4 +10,5 @@ kapstan:
       name: "kapstan-agent-secret"
       namespace: "kapstan"
     skipTlsVerify: false
+    createPath: "https://app-dev.kapstan.io/api/v2/organizations/%s/workspaces/%s/chart"
 replicaCount: 1
