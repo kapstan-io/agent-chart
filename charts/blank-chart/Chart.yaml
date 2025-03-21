@@ -1,0 +1,9 @@
+apiVersion: v2
+name: blank-chart
+description: A Helm Chart used to manage arbitrary manifests, installs nothing on its own
+
+type: application
+
+version: 0.0.1
+
+appVersion: "0.0.1"
