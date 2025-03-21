@@ -1,5 +1,17 @@
 apiVersion: v1
 entries:
+  blank-chart:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2025-03-21T16:01:40.851586746Z"
+    description: A Helm Chart used to manage arbitrary manifests, installs nothing
+      on its own
+    digest: 1c24b15b777f1c37bbd1d2e74125f723880bfd4bbb0aa6146f46f05633dcec6f
+    name: blank-chart
+    type: application
+    urls:
+    - https://github.com/kapstan-io/agent-chart/releases/download/blank-chart-0.0.1/blank-chart-0.0.1.tgz
+    version: 0.0.1
   kapstan-agent:
   - apiVersion: v2
     appVersion: 0.0.5
@@ -92,4 +104,4 @@ entries:
     urls:
     - https://github.com/kapstan-io/agent-chart/releases/download/workspace-observability-0.0.1/workspace-observability-0.0.1.tgz
     version: 0.0.1
-generated: "2024-11-05T11:28:48.491664235Z"
+generated: "2025-03-21T16:01:40.851607034Z"
