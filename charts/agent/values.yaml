@@ -3,7 +3,7 @@ kapstan:
   agent:
     image:
       repository: "ghcr.io/kapstan-io/agent"
-      tag: "0.0.5"
+      tag: "0.0.8"
       pullPolicy: "IfNotPresent"
     environment: "production"
     secret:
